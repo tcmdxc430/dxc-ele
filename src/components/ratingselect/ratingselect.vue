@@ -27,14 +27,14 @@
                      return[];
                  }
              },
-             selectType: {
-                 type: Number,
-                 default: ALL
-             },
-             onlyContent: {
-                 type: Boolean,
-                 default: false
-             },
+            //  selectType: {
+            //      type: Number,
+            //      default: ALL
+            //  },
+            //  onlyContent: {
+            //      type: Boolean,
+            //      default: false
+            //  },
              desc: {
                  type: Object,
                  default() {
@@ -44,6 +44,12 @@
                          negative:'不满意'
                      }
                  }
+             }
+         },
+         data() {
+             return {
+                 selectType: ALL,
+                 onlyContent: false
              }
          },
          computed: {
@@ -59,7 +65,7 @@
              }
          },
          methods: {
-             select(type,event) {
+             select(type,event) { 
                  this.selectType = type
                  this.$emit('select', type) // 广播type
              },
