@@ -68,10 +68,10 @@
           bg-image('star48_off')
     &.star-36
       .star-item
-        width: 15px
-        height: 15px
-        margin-right: 6px
-        background-size: 15px 15px
+        width: 4vw
+        height: 4vw
+        margin-right: 1.6vw
+        background-size: 4vw 4vw
         &:last-child
           margin-right: 0
         &.on

@@ -54,18 +54,18 @@ import star from '../../components/star/star'
        overflow hidden
        .overview
            display flex
-           padding 18px 0
+           padding 4.8vw 0
            .overwiew-left
-               flex 0 0 137px
-               width 137px
+               flex 0 0 36.5vw
+               width 36.5vw
                border-right 1px solid rgba(7,17,27,.1)
                text-align center
-               padding 6px 0
+               padding 1.6vw 0
                .score
                    line-height 28px
-                   font-size 24px
+                   font-size 6.4vw
                    color rgb(255,153,0)
-                   margin-bottom 6px
+                   margin-bottom 1.6vw
                .title
                    line-height 12px
                    font-size 12px
@@ -77,24 +77,24 @@ import star from '../../components/star/star'
                     color rgb(147,153,159)  
            .overwiew-right
                flex 1
-               padding-left 24px
+               padding 1.6vw 0 1.6vw 6.4vw
                .score-wrapper
                    margin-bottom 8px
                    font-size 0
                    .title
                        display inline-block
                        vertical-align top
-                       font-size 12px
+                       font-size 3.2vw
                        color rgb(7,17,27)
                        line-height 18px
                     .star
                         display inline-block
                         vertical-align top
-                        margin 0 12px
+                        margin 0 3.2vw
                     .score
                         display inline-block
                         vertical-align top
-                        font-size 12px
+                        font-size 3.2vw
                         color rgb(255,153,0)
                         line-height 18px
                 .delivery-wrapper
