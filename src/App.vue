@@ -18,6 +18,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import {urlParse} from './common/js/util.js'
 import header from './components/header/header.vue'
 
 const ERR_OK = 0
@@ -25,15 +26,23 @@ const ERR_OK = 0
 export default{ // 整个作为module.export导出
   data() { // 括号后空格
     return {
-      seller: {}
+      seller: {
+        // 商家id
+        id:(() => {
+          let queryParam = urlParse()
+          console.log(queryParam)
+          return queryParam.id
+        })() // ()立即执行函数
+      }
     }
   },
   created() {
-    this.$http.get('/api/seller').then((response) => {
+    this.$http.get('/api/seller?id='+this.seller.id).then((response) => {
       response = response.body
       if (response.errno === ERR_OK) {
-        this.seller = response.data
-        console.log(this.seller)
+        // this.seller = response.data
+        this.seller = Object.assign({},this.seller,response.data)// 将this.seller扩展response.data属性 而不是赋值 这样不会把data中seller的属性替换掉
+        console.log(this.seller.id)
       }
     })
   },

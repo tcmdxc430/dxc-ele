@@ -29,6 +29,11 @@
                         </div>
                     </li>
                 </ul>
+                <!-- 收藏按钮 -->
+                <div class="favorite" @click="toogleFavorite">
+                    <span class="icon-favorite" :class="{'active':favorite}"></span>
+                    <span class="text">{{favoriteText}}</span>
+                </div>
             </div>
             <split></split>
             <!-- 活动与公告 -->
@@ -72,6 +77,8 @@
 import star from '../../components/star/star'
 import split from '../../components/split/split'
 import BScroll from 'better-scroll'
+import {saveToLocal,loadFromLocal} from '../../common/js/store'
+
 export default {
     props: {
         seller: {
@@ -80,7 +87,15 @@ export default {
     },
     data () {
         return {
-        
+            // 从本地存储读取favorite状态
+            favorite: (() => {
+                return loadFromLocal(this.seller.id,'favorite',false)
+            })()
+        }
+    },
+    computed: {
+        favoriteText() {
+            return this.favorite?'已收藏':'收藏'
         }
     },
     // watch: {
@@ -132,6 +147,12 @@ export default {
                 })
             })
         }
+        },
+        // 收藏
+        toogleFavorite() {
+            this.favorite = !this.favorite
+            console.log(this.seller.id)
+            saveToLocal(this.seller.id,'favorite',this.favorite)
         }
     },
     components: {
@@ -151,6 +172,7 @@ export default {
        left 0
        overflow hidden
        .overview
+           position relative
            padding 4.8vw
            .title
                margin-bottom 8px
@@ -192,6 +214,24 @@ export default {
                         color rgb(7,17,27)
                         .stress
                             font-size 6.4vw
+            .favorite
+                position absolute
+                width 13vw
+                right 11px
+                top 4.8vw
+                text-align center
+                .icon-favorite
+                    display block
+                    color #d4d6d9
+                    line-height 24px
+                    font-size 6.4vw
+                    margin-bottom 4px
+                    &.active
+                        color rgb(240,20,20)
+                .text
+                    line-height 10px
+                    font-size 2.7vw
+                    color rgb(77,85,93)
         .bulletin
             padding 4.8vw 4.8vw 0 4.8vw
             .title
