@@ -45,7 +45,7 @@
                 </ul>
             </div>
             <split></split>
-            <!-- 图片轮播 -->
+            <!-- 图片滚动 -->
             <div class="pics">
                 <h1 class="title">商家实景</h1>
                 <div class="pic-wrapper" ref="picWrapper">
@@ -55,6 +55,14 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+            <split></split>
+            <!-- 底部文字信息 -->
+            <div class="info">
+                <h1 class="title border-1px">商家信息</h1>
+                <ul>
+                    <li class="info-item" v-for="info in seller.infos">{{info}}</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -247,5 +255,21 @@ export default {
                         height 90px
                         &:last-child
                             margin 0
+        .info
+            padding 4.8vw 4.8vw 0 4.8vw
+            .title
+                padding-bottom 12px
+                line-height 14px
+                color rgb(7,17,27)
+                font-size 3.7vw
+                border-1px(rgba(7,17,27,.2))
+            .info-item
+                padding 4.5vw 3.2vw
+                line-height 16px
+                border-1px(rgba(7,17,27,.1))
+                color rgb(7,17,27)
+                font-size 3.2vw
+                &:last-child
+                    border-none()
 
 </style>
