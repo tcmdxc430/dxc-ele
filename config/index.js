@@ -9,16 +9,18 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../dist'),//当前项目下的dist目录
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    productionSourceMap: true,
+    productionSourceMap: false,// 生产环境不允许用户的调试
+    
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
+    port: 9000,
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:
     // `npm run build --report`

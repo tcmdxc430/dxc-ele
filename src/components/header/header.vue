@@ -235,14 +235,14 @@
         height 100%
         // 超出屏幕内容不滚动
         overflow auto
-        opacity 1
+        opacity 1 // 动画最终态
         background rgba(7, 17, 27, .8)
         //仅ios
         backdrop-filter blur(10px)
-        // 渐变
+        // 整个渐变过程enter-active到leave-active
         &.fade-enter-active, &.fade-leave-active
             transition: all 0.5s     
-        // 进入开始时为0，离开结束时为0      
+        // enter为第一帧状态，enter，leave仅仅定义一帧的状态      
         &.fade-enter,&.fade-leave-active
             opacity 0
             background rgba(7, 17, 27, 0)

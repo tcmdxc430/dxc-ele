@@ -27,14 +27,14 @@
                      return[];
                  }
              },
-            //  selectType: {
-            //      type: Number,
-            //      default: ALL
-            //  },
-            //  onlyContent: {
-            //      type: Boolean,
-            //      default: false
-            //  },
+             selectType: {
+                 type: Number,
+                 default: ALL
+             },
+             onlyContent: {
+                 type: Boolean,
+                 default: false
+             },
              desc: {
                  type: Object,
                  default() {
@@ -66,11 +66,11 @@
          },
          methods: {
              select(type,event) { 
-                 this.selectType = type
+                //  this.selectType = type  //子组件中不能直接修改父组件的selectType
                  this.$emit('select', type) // 广播type
              },
              toggleCount(event) {
-                 this.onlyContent = !this.onlyContent
+                //  this.onlyContent = !this.onlyContent //子组件中不能直接修改父组件的onlyContent
                  this.$emit('toggle')
              }
          }

@@ -23,6 +23,7 @@
         <!-- 小球动画 -->     
         <div class="ball-container">
             <div v-for="ball in balls">
+            <!-- 如果是列表动画可用transition-group -->
             <transition name="drop" @before-enter="beforeDrop" @enter="dropping" @after-enter="afterDrop">
                 <div class="ball" v-show="ball.show">
                 <div class="inner inner-hook"></div>

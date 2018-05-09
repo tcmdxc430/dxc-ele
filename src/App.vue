@@ -12,8 +12,10 @@
       <router-link to="/seller">商家</router-link>
       </div>
     </div>
-    <!-- 路由外链，用于刷新content -->
-    <router-view :seller="seller"></router-view>
+    <!-- 路由外链，用于刷新content,keepalive保存路由跳转前的状态 -->
+    <keep-alive>
+      <router-view :seller="seller"></router-view>
+    </keep-alive>
   </div>
 </template>
 
